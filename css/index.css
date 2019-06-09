@@ -63,9 +63,12 @@ h1 {
     text-align: center;
 }
 
-.descripcion {
+#descripcionAcentos, #descripcionPuntos, #descripcionMayusculas {
+    display:none;
     width: 100%;
     height: 75%;
+    font-size: 40px;
+    font-weight: bold;
     background-color: #f0e9df;
     border-radius: 10px;
 }

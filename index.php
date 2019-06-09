@@ -19,7 +19,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <button id="btnStart" class="btn btn-success">EMPEZAR</button>
+                    <button id="btnStart" class="btn btn-success" onclick="location.href='categorias.php'">EMPEZAR</button>
                 </div>
                 <div class="col">
                     <img src="img/librin.png" alt="librin" class="img-fluid">
