@@ -9,7 +9,7 @@ body {
 
 .contenedor {
     background-color: #7fa99b;
-    margin-top: 15px;
+    margin-top: 15%;
     border-radius: 10px;
     border: 5px solid #aa7834;
 }
@@ -63,8 +63,10 @@ h1 {
     text-align: center;
 }
 
-#descripcionAcentos, #descripcionPuntos, #descripcionMayusculas {
-    display:none;
+#descripcionAcentos,
+#descripcionPuntos,
+#descripcionMayusculas {
+    display: none;
     width: 100%;
     height: 75%;
     font-size: 40px;
