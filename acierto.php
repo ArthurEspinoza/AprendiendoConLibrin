@@ -1,3 +1,10 @@
+<?php 
+session_start();
+header("Content-type: text/html; charset=utf-8");
+include('controller/conexion.php');
+$conexion = connectDB();
+$_SESSION['indice'] = $_SESSION['indice'] + 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +25,7 @@
             <div class="col">
                 <h1>Correcto</h1>
                 <p>Sigue así y alcanza la mayor puntuación</p>
-                <button><img src="img/avanza_ico.png" alt="avanza">Siguiente ejercicio</button>
+                <button onclick="sigEje()"><img src="img/avanza_ico.png" alt="avanza">Siguiente ejercicio</button>
             </div>
             <div class="col-4">
                 <img src="img/librin.png" alt="librin" class="librin">
@@ -26,4 +33,9 @@
         </div>
     </div>
 </body>
+<script>
+function sigEje(){
+    location.href = 'ejercicioAcentos.php';
+}
+</script>
 </html>
