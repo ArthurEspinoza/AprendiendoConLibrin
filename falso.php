@@ -28,11 +28,11 @@ $resultado = $getDatos->fetch_assoc();
             <div class="col">
                 <h1>!Ooops!</h1>
                 <p>Algo anda mal</p>
-                    <div class="col-8" id="colNota">
-                        <div id="descripcionAcentos">
-
-                        </div>
-                    </div>
+                <div class="col-8" id="colRegla">
+                  <div id="regla">
+                    <?php echo $resultado['regla']?>
+                  </div>
+                </div>
                 <button><img src="img/avanza_ico.png" alt="avanza">Repetir ejercicio</button>
             </div>
             <div class="col-4">

@@ -3,6 +3,7 @@
 }
 
 body {
+    color: #9c2c2c;
     background-color: #f6e79c;
 }
 
@@ -40,4 +41,12 @@ body {
 
 .librin {
     width: 85%;
+}
+#regla {
+    width: 100%;
+    height: 75%;
+    font-size: 40px;
+    font-weight: bold;
+    background-color: #f0e9df;
+    border-radius: 10px;
 }
