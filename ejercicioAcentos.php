@@ -24,6 +24,7 @@ $resultado = $getDatos->fetch_assoc();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container contenedor">
@@ -39,11 +40,11 @@ $resultado = $getDatos->fetch_assoc();
                 <span class="sound">B</span>
             </div>
             <div data-key="67" class="key col cat">
-                <kbd id="67"><?php echo $resultado['opcion4']?></kbd>
+                <kbd id="67"><?php echo $resultado['opcion3']?></kbd>
                 <span class="sound">C</span>
             </div>
             <div data-key="68" class="key col cat">
-                <kbd id="68"><?php echo $resultado['opcion3']?></kbd>
+                <kbd id="68"><?php echo $resultado['opcion4']?></kbd>
                 <span class="sound">D</span>
             </div>
             
@@ -70,7 +71,30 @@ $resultado = $getDatos->fetch_assoc();
                 playSound(e);
                 let valor = e.keyCode;
                 let respuesta = document.getElementById(valor.toString()).innerHTML;
-                console.log(respuesta);
+                let index = '<?php echo $index?>';
+                var data = {
+                    respuesta: respuesta,
+                    index: index
+                }
+                $.ajax({
+                    type:"POST",
+                    url:"controller/validar.php",
+                    data: data
+                }).done(function( data, textStatus, jqXHR ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud se ha completado correctamente.");
+                        if (data == 1) {
+                            location.href = 'acierto.php';
+                        } else {
+                            location.href = 'falso.php';
+                        }
+                    }
+                }).fail(function( jqXHR, textStatus, errorThrown ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud a fallado: " +  textStatus);
+                    }
+                });
+                //console.log(data);
             }
             const keys = Array.from(document.querySelectorAll('.key'));
             keys.forEach(key => key.addEventListener('transitionend', removeTransition));
