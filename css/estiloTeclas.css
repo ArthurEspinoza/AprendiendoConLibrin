@@ -10,6 +10,7 @@ body,html {
   font-family: sans-serif;
 } */
 
+
 /* .keys {
   display: flex;
   flex: 1;
@@ -19,43 +20,43 @@ body,html {
 } */
 
 .key {
-  border: 5px solid #aa7834;
-  border-radius: 3px;
-  margin: 10% 3% 0 3%;
-  font-size: 20px;
-  padding: 1rem .5rem;
-  transition: all .07s ease;
-  width: 200px;
-  height: 150px;
-  text-align: center;
-  color: #9c2c2c;
-  background-color: #aa7834;
-  text-shadow: 0 0 .5rem black;
+    border: 5px solid #aa7834;
+    border-radius: 3px;
+    margin: 5% 3% 0 3%;
+    font-size: 20px;
+    padding: 1rem .5rem;
+    transition: all .07s ease;
+    width: 200px;
+    height: 150px;
+    text-align: center;
+    color: #9c2c2c;
+    background-color: #aa7834;
+    text-shadow: 0 0 .5rem black;
 }
 
 .playing {
-  transform: scale(1.1);
-  border-color: #ffc600;
-  box-shadow: 0 0 1rem #ffc600;
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
 }
 
 kbd {
-  text-align: center;
-  display: block;
-  font-size: 32px;
-  margin: 0 3% 0 0;
-  background-color: #aa7834;
-  
-  height: 50px;
+    text-align: center;
+    display: block;
+    font-size: 32px;
+    margin: 0 3% 0 0;
+    background-color: #aa7834;
+    height: 50px;
 }
-kbd:hover{
-  text-align: center;
-  background-color: #aa7834;
+
+kbd:hover {
+    text-align: center;
+    background-color: #aa7834;
 }
 
 .sound {
-  font-size: 30px;
-  text-transform: uppercase;
-  letter-spacing: .1rem;
-  color: #ffc600;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: #ffc600;
 }

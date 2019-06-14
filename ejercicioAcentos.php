@@ -1,12 +1,20 @@
 <?php 
+session_start();
+header("Content-type: text/html; charset=utf-8");
 include('controller/conexion.php');
 $conexion = connectDB();
- echo $conexion->host_info . "\n";
+$acentos = $conexion->query("SET NAMES 'utf-8'");
+$index = $_SESSION['indice'];
+$getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index");
+$resultado = $getDatos->fetch_assoc();
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-type" content="text/html;charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Ejercicio Acentos</title>
@@ -19,24 +27,26 @@ $conexion = connectDB();
 </head>
 <body>
     <div class="container contenedor">
-        <h1>Selecciona la palabra mal escrita:</h1>
+        <h1><?php echo $resultado['ejercicio']?></h1>
+        <h4 id="aviso">Presiona la tecla de la letra que creas que es la respuesta</h4>
         <div class="keys row">
             <div data-key="65" class="key col cat">
-                <kbd>aéreo</kbd>
+                <kbd id="65"><?php echo $resultado['opcion1']?></kbd>
                 <span class="sound">A</span>
             </div>
             <div data-key="66" class="key col cat">
-                <kbd>vigía</kbd>
+                <kbd id="66"><?php echo $resultado['opcion2']?></kbd>
                 <span class="sound">B</span>
             </div>
             <div data-key="67" class="key col cat">
-                <kbd>acréedor</kbd>
+                <kbd id="67"><?php echo $resultado['opcion4']?></kbd>
                 <span class="sound">C</span>
             </div>
             <div data-key="68" class="key col cat">
-                <kbd>aeroplano</kbd>
+                <kbd id="68"><?php echo $resultado['opcion3']?></kbd>
                 <span class="sound">D</span>
             </div>
+            
         </div>
         <audio data-key="65" src="sounds/clap.wav"></audio>
         <audio data-key="66" src="sounds/hihat.wav"></audio>
@@ -56,9 +66,15 @@ $conexion = connectDB();
                 audio.currentTime = 0;
                 audio.play();
             }
+            function verificar(e){
+                playSound(e);
+                let valor = e.keyCode;
+                let respuesta = document.getElementById(valor.toString()).innerHTML;
+                console.log(respuesta);
+            }
             const keys = Array.from(document.querySelectorAll('.key'));
             keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-            window.addEventListener('keydown', playSound);
+            window.addEventListener('keydown', verificar);
         </script>
         <div class="row">
             <h3>Puntaje</h3>
