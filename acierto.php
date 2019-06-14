@@ -1,3 +1,10 @@
+<?php 
+session_start();
+header("Content-type: text/html; charset=utf-8");
+include('controller/conexion.php');
+$conexion = connectDB();
+$_SESSION['indice'] = $_SESSION['indice'] + 1;
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,4 +33,9 @@
         </div>
     </div>
 </body>
+<script>
+function sigEje(){
+    location.href = 'ejercicioAcentos.php';
+}
+</script>
 </html>
