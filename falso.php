@@ -33,7 +33,7 @@ $resultado = $getDatos->fetch_assoc();
                     <?php echo $resultado['regla']?>
                   </div>
                 </div>
-                <button><img src="img/avanza_ico.png" alt="avanza">Repetir ejercicio</button>
+                <button onclick="regEje()"><img src="img/avanza_ico.png" alt="avanza">Repetir ejercicio</button>
             </div>
             <div class="col-4">
                 <img src="img/librin.png" alt="librin" class="librin">
@@ -41,4 +41,9 @@ $resultado = $getDatos->fetch_assoc();
         </div>
     </div>
 </body>
+<script>
+    function regEje(params) {
+        location.href = 'ejercicioAcentos.php';
+    }
+</script>
 </html>
