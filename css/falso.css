@@ -3,13 +3,12 @@
 }
 
 body {
-    color: #9c2c2c;
     background-color: #f6e79c;
 }
 
 .contenedor {
     background-color: #c02525;
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 10px;
     border: 5px solid #aa7834;
 }
@@ -28,7 +27,7 @@ body {
 .col button {
     font-size: 20px;
     border-radius: 10px;
-    margin: 0 0 0 32%;
+    margin: 0 0 5% 32%;
     border: 3px solid #f0f0f0;
     background-color: #3e3e3e;
     color: #f0f0f0;
@@ -43,10 +42,13 @@ body {
     width: 85%;
 }
 #regla {
+    margin: 5% 0 5% 25%;
+    padding: 20px 50px 20px 50px;
     width: 100%;
     height: 75%;
-    font-size: 40px;
+    font-size: 20px;
     font-weight: bold;
-    background-color: #f0e9df;
     border-radius: 10px;
+    border: 5px solid black;
+    background-color: #f0e9df;
 }
