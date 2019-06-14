@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 header("Content-type: text/html; charset=utf-8");
 include('controller/conexion.php');
@@ -7,9 +7,6 @@ $acentos = $conexion->query("SET NAMES 'utf-8'");
 $index = $_SESSION['indice'];
 $getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index");
 $resultado = $getDatos->fetch_assoc();
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,14 +36,14 @@ $resultado = $getDatos->fetch_assoc();
                 <span class="sound">B</span>
             </div>
             <div data-key="67" class="key col cat">
-                <kbd id="67"><?php echo $resultado['opcion4']?></kbd>
+                <kbd id="67"><?php echo $resultado['opcion3']?></kbd>
                 <span class="sound">C</span>
             </div>
             <div data-key="68" class="key col cat">
-                <kbd id="68"><?php echo $resultado['opcion3']?></kbd>
+                <kbd id="68"><?php echo $resultado['opcion4']?></kbd>
                 <span class="sound">D</span>
             </div>
-            
+
         </div>
         <audio data-key="65" src="sounds/clap.wav"></audio>
         <audio data-key="66" src="sounds/hihat.wav"></audio>
@@ -72,9 +69,24 @@ $resultado = $getDatos->fetch_assoc();
                 let respuesta = document.getElementById(valor.toString()).innerHTML;
                 console.log(respuesta);
             }
+            function verificarLuci(e){
+                playSound(e);
+                let valor = e.keyCode;
+                let respuesta = document.getElementById(valor.toString()).innerHTML;
+                console.log(respuesta);
+                let resultado = "<?php echo $resultado['correcta']?>";
+                if(respuesta == resultado ){
+                //console.log("correcto");
+                  location.href = "acierto.php";
+                }
+                else{
+                  //console.log("incorrecto");
+                  location.href = "falso.php";
+                }
+            }
             const keys = Array.from(document.querySelectorAll('.key'));
             keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-            window.addEventListener('keydown', verificar);
+            window.addEventListener('keydown', verificarLuci);
         </script>
         <div class="row">
             <h3>Puntaje</h3>

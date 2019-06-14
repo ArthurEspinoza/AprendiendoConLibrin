@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+<?php
+session_start();
+header("Content-type: text/html; charset=utf-8");
+include('controller/conexion.php');
+$conexion = connectDB();
+$acentos = $conexion->query("SET NAMES 'utf-8'");
+$index = $_SESSION['indice'];
+$getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index");
+$resultado = $getDatos->fetch_assoc();
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -18,6 +28,11 @@
             <div class="col">
                 <h1>!Ooops!</h1>
                 <p>Algo anda mal</p>
+                    <div class="col-8" id="colNota">
+                        <div id="descripcionAcentos">
+
+                        </div>
+                    </div>
                 <button><img src="img/avanza_ico.png" alt="avanza">Repetir ejercicio</button>
             </div>
             <div class="col-4">
