@@ -101,11 +101,15 @@ $resultado = $getDatos->fetch_assoc();
                 let resultado = "<?php echo $resultado['correcta']?>";
                 if(respuesta == resultado ){
                 //console.log("correcto");
-                  location.href = "acierto.php";
+                  setTimeout(() => {
+                    location.href = "acierto.php";
+                  }, 500);
                 }
                 else{
                   //console.log("incorrecto");
-                  location.href = "falso.php";
+                  setTimeout(() => {
+                      location.href = "falso.php";
+                  }, 500);
                 }
             }
             const keys = Array.from(document.querySelectorAll('.key'));
@@ -113,7 +117,9 @@ $resultado = $getDatos->fetch_assoc();
             window.addEventListener('keydown', verificarLuci);
         </script>
         <div class="row">
-            <h3>Puntaje</h3>
+            <div class="col-4">
+                <h3>Puntaje:</h3><h3><?php echo $_SESSION['puntaje']?></h3>
+            </div>
             <div class="col-4" id="colImg">
                 <img src="img/librin.png" alt="librin" class="img-fluid">
             </div>

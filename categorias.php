@@ -1,6 +1,8 @@
 <?php
 session_start();
 $_SESSION['indice'] = 1;
+$_SESSION['puntaje'] = 0;
+$_SESSION['intento'] = 0;
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -4,6 +4,21 @@ header("Content-type: text/html; charset=utf-8");
 include('controller/conexion.php');
 $conexion = connectDB();
 $_SESSION['indice'] = $_SESSION['indice'] + 1;
+$numIntentos = $_SESSION['intento'];
+switch ($numIntentos) {
+    case '0':
+        $_SESSION['puntaje'] = $_SESSION['puntaje'] + 100;
+        break;
+    case '1':
+        $_SESSION['puntaje'] = $_SESSION['puntaje'] + 75;
+        break;
+    case '2':
+        $_SESSION['puntaje'] = $_SESSION['puntaje'] + 50;
+        break;
+    default:
+        $_SESSION['puntaje'] = $_SESSION['puntaje'] + 25;
+        break;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">

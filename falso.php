@@ -6,6 +6,7 @@ include('controller/conexion.php');
 $conexion = connectDB();
 $acentos = $conexion->query("SET NAMES 'utf-8'");
 $index = $_SESSION['indice'];
+$_SESSION['intento'] = $_SESSION['intento'] + 1;
 $getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index");
 $resultado = $getDatos->fetch_assoc();
 ?>
