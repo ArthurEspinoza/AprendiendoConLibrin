@@ -1,0 +1,47 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #9c2c2c;
+    background-color: #f6e79c;
+}
+
+.contenedor {
+    background-color: #7fa99b;
+    margin-top: 15px;
+    border-radius: 10px;
+    border: 5px solid #aa7834;
+}
+
+.col-4 h2 {
+    text-align: center;
+    font-weight: bold;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type=text] {
+    border: none;
+}
+
+input[type=text]:focus {
+    border: 5px dotted #aa7834;
+}
+
+#btnPuntaje {
+    border-radius: 8px;
+    background-color: #f6e79c;
+    border: 3px solid #aa7834;
+    color: #9c2c2c;
+    font-weight: bold;
+    margin: 0 0 0 25%;
+}
+
+#btnPuntaje:hover {
+    background-color: #aa7834;
+    color: #f6e79c;
+    border: 3px solid #9c2c2c;
+}

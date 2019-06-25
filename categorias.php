@@ -23,7 +23,7 @@ $_SESSION['intento'] = 0;
         <h2>Selecciona una categoría</h2>
         <div class="row">
             <div class="col">
-                <div id="acentos" onmouseover="visibleAcentos()"  onmouseout="ocultarAcentos()"><button class="cat" onclick="location.href='ejercicioAcentos.php'">á</button></div>
+                <div id="acentos" onmouseover="visibleAcentos()"  onmouseout="ocultarAcentos()"><button class="cat" onclick="irA('acentos')">á</button></div>
                 <h3>Acentos</h3>
             </div>
             <div class="col">
@@ -57,4 +57,19 @@ $_SESSION['intento'] = 0;
     <br>
     <br>
 </body>
+<script>
+function irA(categoria) {
+    switch (categoria) {
+        case "acentos":
+            <?php 
+                $_SESSION['categoria'] = 1;
+            ?>
+            location.href = "ejercicioAcentos.php";
+            break;
+    
+        default:
+            break;
+    }
+}
+</script>
 </html>
