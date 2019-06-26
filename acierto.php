@@ -52,7 +52,7 @@ switch ($numIntentos) {
 function sigEje(){
     var indice = "<?php echo $_SESSION['indice']?>";
     console.log(indice);
-    if (indice > 2) {
+    if (indice > 5) {
         location.href = 'puntuacion.php';  
     } else {
         location.href = 'ejercicioAcentos.php';

@@ -17,6 +17,7 @@ $_SESSION['intento'] = 0;
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="container contenedor">
@@ -27,11 +28,11 @@ $_SESSION['intento'] = 0;
                 <h3>Acentos</h3>
             </div>
             <div class="col">
-                <div id="puntos" onmouseover="visiblePuntos()"  onmouseout="ocultarPuntos()"><button class="cat">; : . ,</button></div>
+                <div id="puntos" onmouseover="visiblePuntos()"  onmouseout="ocultarPuntos()"><button class="cat" onclick="irA('puntuacion')">; : . ,</button></div>
                 <h3>Puntuación</h3>
             </div>
             <div class="col">
-                <div id="mayusculas" onmouseover="visibleMayusculas()"  onmouseout="ocultarMayusculas()"><button class="cat">A</button></div>
+                <div id="mayusculas" onmouseover="visibleMayusculas()"  onmouseout="ocultarMayusculas()"><button class="cat" onclick="irA('mayusculas')">A</button></div>
                 <h3>Mayúsculas</h3>
             </div>
         </div>
@@ -59,17 +60,22 @@ $_SESSION['intento'] = 0;
 </body>
 <script>
 function irA(categoria) {
-    switch (categoria) {
-        case "acentos":
-            <?php 
-                $_SESSION['categoria'] = 1;
-            ?>
-            location.href = "ejercicioAcentos.php";
-            break;
-    
-        default:
-            break;
+    console.log(categoria);
+    data = {
+        cat: categoria
     }
+    $.ajax({
+        type: "POST",
+        url: "controller/irCategorias.php",
+        data: data
+    }).done(function( data, textStatus, jqXHR ) {
+                    if ( console && console.log ) {
+                        console.log( "La solicitud se ha completado correctamente.");
+                        if (data == 1) {
+                            location.href = 'ejercicioAcentos.php';
+                        }
+                    }
+                });
 }
 </script>
 </html>

@@ -5,7 +5,8 @@ include('controller/conexion.php');
 $conexion = connectDB();
 $acentos = $conexion->query("SET NAMES 'utf-8'");
 $index = $_SESSION['indice'];
-$getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index");
+$idCat = $_SESSION['categoria'];
+$getDatos = $conexion->query("SELECT * from Actividad WHERE idActividad = $index AND idcategoria = $idCat");
 $resultado = $getDatos->fetch_assoc();
 ?>
 <!DOCTYPE html>

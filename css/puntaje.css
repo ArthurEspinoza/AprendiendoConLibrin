@@ -31,7 +31,7 @@ input[type=text]:focus {
     border: 5px dotted #aa7834;
 }
 
-#btnPuntaje {
+.btnPuntaje {
     border-radius: 8px;
     background-color: #f6e79c;
     border: 3px solid #aa7834;
@@ -40,8 +40,52 @@ input[type=text]:focus {
     margin: 0 0 0 25%;
 }
 
-#btnPuntaje:hover {
+.btnPuntaje:hover {
     background-color: #aa7834;
     color: #f6e79c;
     border: 3px solid #9c2c2c;
+}
+
+.btnRegresa {
+    border-radius: 8px;
+    background-color: #f6e79c;
+    border: 3px solid #aa7834;
+    color: #9c2c2c;
+    font-weight: bold;
+    margin: 10px 0 0 25%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.btnRegresa:hover {
+    background-color: #aa7834;
+    color: #f6e79c;
+    border: 3px solid #9c2c2c;
+}
+
+
+/*Estilo para la tabla*/
+
+.col-8 h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-right: 10%;
+}
+
+.tabla {
+    background-color: #EEEEEE;
+    width: 80%;
+    margin: 20px 0 0 10%;
+    border: 3px solid #aa7834;
+}
+
+th {
+    background-color: #aa7834;
+    font-size: 20px;
+}
+
+th,
+td {
+    padding: 15px;
+    text-align: left;
 }
