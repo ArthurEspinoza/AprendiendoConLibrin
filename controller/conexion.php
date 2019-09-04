@@ -3,7 +3,7 @@
 
         $server = "localhost";
         $user = "root";
-        $pass = "root";
+        $pass = "";
         $bd = "librinbd";
     
     
